@@ -1,5 +1,6 @@
 /**
  * User: Gifflen
  */
-public class BinaryTree {
+public class BinaryTree<E> {
+
 }

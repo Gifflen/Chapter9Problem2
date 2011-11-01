@@ -5,5 +5,7 @@
  *  Write the program so that I can enter an index and it will print out the given left and right child for that node.
  */
 public class Driver {
+    public  static void main(String[] args){
 
+    }
 }
