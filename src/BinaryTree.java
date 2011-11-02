@@ -32,6 +32,7 @@ public class BinaryTree<E> {
 
 
     }
+    @SuppressWarnings({"unchecked"})
     public E getData(int index){
         try{
             return (E) arrayContainer[index];
