@@ -20,11 +20,18 @@ public class Driver {
         //btint.addNode(11);
 
         System.out.println("Root Data:"+btint.getData(0));
+        System.out.println("----");
         System.out.println("Depth :"+btint.getDepth());
-        System.out.println(btint.getLeft(0));
-        System.out.println(btint.getRight(1));
+        System.out.println("----");
+        btint.getDataAtIndex(0);
+        System.out.println("----");
 
+        System.out.println(btint.getLeft(0));
+        System.out.println("----");
+        System.out.println(btint.getRight(1));
+        System.out.println("----");
         System.out.println("Branch Left of root: "+btint.getLeftData(0));
+        System.out.println("----");
         System.out.println("Branch Right of root: "+ btint.getRightData(0));
 
     }
