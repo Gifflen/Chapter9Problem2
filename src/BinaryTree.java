@@ -13,7 +13,7 @@ public class BinaryTree<E> {
 
     //private E[] arrayContainer;
     private Object[] arrayContainer;
-    private E[] branchData;
+    private Object[] branchData;
     public BinaryTree() {
         arrayContainer = new Object[10];
         //arrayContainer = (E[]) Array.newInstance(incomingClass,10);
@@ -27,9 +27,12 @@ public class BinaryTree<E> {
         if (node!=null){
             System.out.println("  "+node+"  ");
             System.out.println(" / \\");
-            for(E data: branchData)
+            for(Object data: branchData)
                 System.out.print(data+"  ");
+            System.out.println();
+            //return true;
         }
+        //return false;
     }
     public E getData(int index){
         try{
@@ -39,10 +42,11 @@ public class BinaryTree<E> {
         }
     }
 
-    public E[] getBranches(int index){
-        branchData = (E[]) Array.newInstance(arrayContainer.getClass(),BRANCHES.length);
+    private Object[] getBranches(int index){
+        branchData = new Object[BRANCHES.length];
         for(int side: BRANCHES){
-            branchData[side-1]=getData(2*index-side);
+            E data = getData(2*index+side);
+            branchData[side-1]= data;
         }
         return branchData;
     }
