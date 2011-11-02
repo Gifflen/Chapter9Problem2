@@ -75,7 +75,7 @@ public class BinaryTree<E> {
     }
 
     public int getRightMostIndex(int index){
-        E data = getLeftData(index);
+        E data = getRightData(index);
         if (data!=null){
             return getRightMostIndex(getRightIndex(index));
         }else{
