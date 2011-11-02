@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  * User: Gifflen
  * Chapter 9 Problem 2
@@ -5,6 +9,46 @@
  *  Write the program so that I can enter an index and it will print out the given left and right child for that node.
  */
 public class Driver {
+
+    private static void runTests(int index,BinaryTree test){
+        System.out.println("Root Data:" + test.getData(index));
+        System.out.println("Depth :"+test.getDepth());
+        test.getDataAtIndex(index);
+        System.out.println("Index of left branch :" + test.getLeft(index));
+        System.out.println("Index of Right branch :" +test.getRight(index));
+        System.out.println("Branch Left of root: "+test.getLeftData(index));
+        System.out.println("Branch Right of root: "+ test.getRightData(index));
+    }
+    private static void getInput(BinaryTree test){
+        String inpString = "";
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        while(true){
+            try{
+                System.out.println("Input a number to test. Type \"quit\" to exit");
+                inpString = in.readLine();
+
+                if(inpString=="quit")break;
+
+              try{
+                runTests(Integer.parseInt(inpString),test);
+              }catch (NumberFormatException e){
+                  System.out.println("User input is not an Integer: " + inpString);
+              }
+
+            }catch (IOException e){
+                System.out.println("Oh Mah Gawd. The Humanity. What have you DONE?!?");
+            }
+
+
+        }
+
+
+    }
+
+    private static void getInput(Integer integer, BinaryTree test) {
+    }
+
+
     public  static void main(String[] args){
         BinaryTree<Integer> btint = new BinaryTree<Integer>();
         btint.addNode(1);
@@ -19,20 +63,8 @@ public class Driver {
         //btint.addNode(10);
         //btint.addNode(11);
 
-        System.out.println("Root Data:"+btint.getData(0));
-        System.out.println("----");
-        System.out.println("Depth :"+btint.getDepth());
-        System.out.println("----");
-        btint.getDataAtIndex(0);
-        System.out.println("----");
+        getInput(btint);
 
-        System.out.println(btint.getLeft(0));
-        System.out.println("----");
-        System.out.println(btint.getRight(1));
-        System.out.println("----");
-        System.out.println("Branch Left of root: "+btint.getLeftData(0));
-        System.out.println("----");
-        System.out.println("Branch Right of root: "+ btint.getRightData(0));
 
     }
 }
