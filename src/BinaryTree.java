@@ -28,11 +28,13 @@ public class BinaryTree<E> {
             System.out.println("  "+node+"  ");
             System.out.println(" / \\");
             for(Object data: branchData)
-                System.out.print(data+"  ");
+                System.out.print(data+"   ");
             System.out.println();
-            //return true;
+        }else{
+            System.out.println("Tree Does not exit");
         }
-        //return false;
+
+
     }
     public E getData(int index){
         try{
