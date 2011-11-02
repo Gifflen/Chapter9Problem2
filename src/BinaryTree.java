@@ -52,7 +52,7 @@ public class BinaryTree<E> {
         return (2*index+side);
     }
     public int getLeftIndex(int index){
-        return getIndex(index,LEFT);
+        return getIndex(index, LEFT);
     }
 
     public int getRightIndex(int index){
@@ -72,7 +72,7 @@ public class BinaryTree<E> {
         int branchIndex = getIndex(index,side);
         E data = this.getData(branchIndex);
         if (data!=null){
-            return getExtremeIndex(branchIndex,side);
+            return getExtremeIndex(branchIndex, side);
         }else{
             return index;
         }
@@ -96,9 +96,7 @@ public class BinaryTree<E> {
     }
 
     public boolean isLeaf(int index){
-        if((getLeftData(index)==null)&&(getRightData(index)==null))
-            return true;
-        return false;
+        return (getLeftData(index) == null) && (getRightData(index) == null);
     }
     private void removeIndex(int index){
         arrayContainer[index] = null;
@@ -123,7 +121,7 @@ public class BinaryTree<E> {
         boolean added=false;
         for(int i = 0; i<arrayContainer.length;i++){
             if (arrayContainer[i]==null){
-                arrayContainer[i] = (E)data;
+                arrayContainer[i] = data;
                 added = true;
                 break;
             }
@@ -145,8 +143,7 @@ public class BinaryTree<E> {
 
     private void expandSize(){
         Object[] newContainer = new Object[arrayContainer.length*2] ;
-        for(int i = 0;i<arrayContainer.length;i++)
-            newContainer[i] = arrayContainer[i];
+        System.arraycopy(arrayContainer, 0, newContainer, 0, arrayContainer.length);
         arrayContainer = newContainer;
     }
 
