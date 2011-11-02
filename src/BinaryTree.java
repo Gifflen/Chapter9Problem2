@@ -48,12 +48,15 @@ public class BinaryTree<E> {
         }
         return branchData;
     }
+    private static int getIndex(int index,int side){
+        return (2*index+side);
+    }
     public int getLeftIndex(int index){
-        return (2*index+LEFT);
+        return getIndex(index,LEFT);
     }
 
     public int getRightIndex(int index){
-        return (2*index+RIGHT);
+        return getIndex(index,RIGHT);
     }
 
 
@@ -65,30 +68,31 @@ public class BinaryTree<E> {
        return getData(this.getRightIndex(index));
     }
 
-    public int getLeftMostIndex(int index){
-        E data = getLeftData(index);
+    private int getExtremeIndex(int index,int side){
+        int branchIndex = getIndex(index,side);
+        E data = this.getData(branchIndex);
         if (data!=null){
-            return getLeftMostIndex(getLeftIndex(index));
+            return getExtremeIndex(branchIndex,side);
         }else{
             return index;
         }
+    }
+
+
+    public int getLeftMostIndex(int index){
+        return this.getExtremeIndex(index, LEFT);
     }
 
     public int getRightMostIndex(int index){
-        E data = getRightData(index);
-        if (data!=null){
-            return getRightMostIndex(getRightIndex(index));
-        }else{
-            return index;
-        }
+         return this.getExtremeIndex(index, RIGHT);
     }
 
     public E getLeftMostData(int index){
-        return getData(getLeftMostIndex(index));
+        return getData(this.getLeftMostIndex(index));
     }
 
     public E getRightMostData(int index){
-        return getData(getRightMostIndex(index));
+        return getData(this.getRightMostIndex(index));
     }
 
     public boolean isLeaf(int index){
@@ -96,21 +100,23 @@ public class BinaryTree<E> {
             return true;
         return false;
     }
-
-    public BinaryTree<E> removeLeft(){
-        return null;
+    private void removeIndex(int index){
+        arrayContainer[index] = null;
+    }
+    public void removeLeft(int  index){
+        removeIndex(getLeftIndex(index));
     }
 
-    public BinaryTree<E> removeRight(){
-        return null;
+    public void removeRight(int index){
+       removeIndex(getRightIndex(index));
     }
 
-    public BinaryTree<E> removeLeftMost(){
-        return null;
+    public void removeLeftMost(int index){
+        removeIndex(getLeftMostIndex(index));
     }
 
-    public BinaryTree<E> removeRightMost(){
-        return null;
+    public void removeRightMost(int index){
+        removeIndex(getRightMostIndex(index));
     }
 
     public void addNode(E data){
