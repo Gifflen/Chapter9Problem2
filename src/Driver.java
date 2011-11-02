@@ -21,6 +21,8 @@ public class Driver {
         System.out.println("Is leaf :" + test.isLeaf(index));
         System.out.println("Left Most Data: " + test.getLeftMostData(index));
         System.out.println("Right Most Data: " + test.getRightMostData(index));
+        test.removeLast();
+        System.out.println("Left Most Data: " + test.getLeftMostData(index));
     }
     private static void getInput(BinaryTree test){
         String inpString = "";

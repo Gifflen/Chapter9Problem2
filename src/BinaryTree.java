@@ -129,11 +129,12 @@ public class BinaryTree<E> {
     }
 
     public void removeLast(){
-
-        for(int i = 0; arrayContainer[i]!=null;i--){
-
+        for(int i = arrayContainer.length-1; i>=0;i--){
+             if (arrayContainer[i]!=null){
+                arrayContainer[i]=null;
+                 break;
+             }
         }
-
     }
 
     private void expandSize(){
