@@ -27,7 +27,7 @@ public class BinaryTree<E> {
                 System.out.print(data+"   ");
             System.out.println();
         }else{
-            System.out.println("Tree Does not exit");
+            System.out.println("Tree Does not exist");
         }
 
 
