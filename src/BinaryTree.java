@@ -98,6 +98,7 @@ public class BinaryTree<E> {
     public boolean isLeaf(int index){
         return (getLeftData(index) == null) && (getRightData(index) == null);
     }
+    //TODO: move data back up the tree if a removal is occurring.
     private void removeIndex(int index){
         arrayContainer[index] = null;
     }
