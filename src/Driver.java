@@ -14,10 +14,13 @@ public class Driver {
         System.out.println("Root Data:" + test.getData(index));
         System.out.println("Depth :"+test.getDepth());
         test.getDataAtIndex(index);
-        System.out.println("Index of left branch :" + test.getLeft(index));
-        System.out.println("Index of Right branch :" +test.getRight(index));
+        System.out.println("Index of left branch :" + test.getLeftIndex(index));
+        System.out.println("Index of Right branch :" +test.getRightIndex(index));
         System.out.println("Branch Left of root: "+test.getLeftData(index));
         System.out.println("Branch Right of root: "+ test.getRightData(index));
+        System.out.println("Is leaf :" + test.isLeaf(index));
+        System.out.println("Left Most Data: " + test.getLeftMostData(index));
+        System.out.println("Right Most Data: " + test.getRightMostData(index));
     }
     private static void getInput(BinaryTree test){
         String inpString = "";
@@ -30,7 +33,7 @@ public class Driver {
                 if(inpString=="quit")break;
 
               try{
-                runTests(Integer.parseInt(inpString),test);
+                runTests(Integer.parseInt(inpString), test);
               }catch (NumberFormatException e){
                   System.out.println("User input is not an Integer: " + inpString);
               }
@@ -58,7 +61,7 @@ public class Driver {
         btint.addNode(5);
         btint.addNode(6);
         btint.addNode(7);
-        //btint.addNode(8);
+        btint.addNode(8);
         //btint.addNode(9);
         //btint.addNode(10);
         //btint.addNode(11);

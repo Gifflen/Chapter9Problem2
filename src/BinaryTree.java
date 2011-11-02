@@ -1,5 +1,3 @@
-import java.lang.reflect.Array;
-
 /**
  * User: Gifflen
  * Child = [2i+1] [2i+2]
@@ -16,8 +14,6 @@ public class BinaryTree<E> {
     private Object[] branchData;
     public BinaryTree() {
         arrayContainer = new Object[10];
-        //arrayContainer = (E[]) Array.newInstance(incomingClass,10);
-        //branchData = (E[]) Array.newInstance(incomingClass,2);
     }
 
 
@@ -52,38 +48,47 @@ public class BinaryTree<E> {
         }
         return branchData;
     }
-    public int getLeft(int index){
+    public int getLeftIndex(int index){
         return (2*index+LEFT);
     }
 
-    public int getRight(int index){
+    public int getRightIndex(int index){
         return (2*index+RIGHT);
     }
 
 
     public E getLeftData(int index){
-        return getData(this.getLeft(index));
+        return getData(this.getLeftIndex(index));
     }
 
     public E getRightData(int index){
-       return getData(this.getRight(index));
+       return getData(this.getRightIndex(index));
     }
 
-    public BinaryTree<E> getLeftMost(){
-
-        return null;
+    public int getLeftMostIndex(int index){
+        E data = getLeftData(index);
+        if (data!=null){
+            return getLeftMostIndex(getLeftIndex(index));
+        }else{
+            return index;
+        }
     }
 
-    public BinaryTree<E> getRightMost(){
-        return null;
+    public int getRightMostIndex(int index){
+        E data = getLeftData(index);
+        if (data!=null){
+            return getRightMostIndex(getRightIndex(index));
+        }else{
+            return index;
+        }
     }
 
-    public E getLeftMostData(){
-        return null;
+    public E getLeftMostData(int index){
+        return getData(getLeftMostIndex(index));
     }
 
-    public E getRightMostData(){
-        return null;
+    public E getRightMostData(int index){
+        return getData(getRightMostIndex(index));
     }
 
     public boolean isLeaf(int index){
